@@ -1,0 +1,83 @@
+.home-carousel-wrap {
+    margin-top: 20px;
+    overflow: hidden;
+    .carousel-content {
+        width: 70%;
+        overflow: hidden;
+        padding: 20px 0;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        ul.carousel-box {
+            width: 300%;
+            list-style: none;
+            margin: 0px;
+            display: flex;
+            flex-wrap: nowrap;
+            li {
+                width: 33.3%;
+                display: flex;
+                justify-content: space-around;
+                a {
+                    text-decoration: none;
+                    position: relative;
+                    transition: all 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                    -webkit-transition: all 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                    &:hover {
+                        transform: translateY(-2px);
+                        -webkit-transform: translateY(-2px);
+                    }
+                    img {
+                        width: 250px;
+                        height: 300px;
+                        border-radius: 5px;
+                        box-shadow: 0 0 10px #9a9a9a;
+                    }
+                    p {
+                        background: rgba(67, 200, 214, 0.5);
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0px;
+                        width: 100%;
+                        box-sizing: border-box;
+                        padding: 10px;
+                        color: #fff;
+                        text-align: center;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+                }
+            }
+        }
+        ul.choice-box {
+            width: 100%;
+            list-style: none;
+            text-align: center;
+            margin-top: 15px;
+            li {
+                display: inline-block;
+                p {
+                    background: #333;
+                    color: #fff;
+                    padding: 5px 8px;
+                    border-radius: 10px;
+                    font-size: 14px;
+                    margin: 0 20px;
+                }
+                p.choiced-item {
+                    background: #1aa1c7;
+                }
+            }
+        }
+    }
+    .recommend-up {
+        width: 30%;
+        float: left;
+        padding: 20px 0;
+        box-sizing: border-box;
+
+    }
+}

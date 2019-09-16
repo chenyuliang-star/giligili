@@ -1,0 +1,33 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "data_server": "node ./DataServer/index.js",
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "cyl",
+  "license": "ISC",
+  "dependencies": {
+    "crawler": "^1.2.1",
+    "less": "^3.10.3",
+    "mongoose": "^5.7.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less-loader": "^5.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  }
+}
