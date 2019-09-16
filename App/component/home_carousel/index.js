@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getCarouselData } from "../../redux/home_redux/action";
 import "./index.less";
 
 class HomeCarousel extends Component {
@@ -29,6 +32,9 @@ class HomeCarousel extends Component {
         carouselDom.addEventListener("mouseout", function () {
             that.setCarouseInterval();
         })
+
+        //发送数据请求
+        this.props.getCarouselData();
     }
     componentWillUnmount () {
         clearInterval(this.interval);
@@ -38,46 +44,40 @@ class HomeCarousel extends Component {
             <div className="carousel-content">        
                 <ul className="carousel-box" id="carousel-box" style={{ marginLeft: "-" + this.state.cnt + "%"}}>
                     <li>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190509/312_1539117751.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190509/312_1539117751.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190509/312_1539117751.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
+                        { 
+                            this.props.carouselData && 
+                            Array.isArray(this.props.carouselData["newFan"]) && 
+                            this.props.carouselData["newFan"].map((item) => {
+                                return (<a href="#" target="_blank" >
+                                    <img src={item.bgImg} />
+                                    <p>{item.desc}</p>
+                                </a>)
+                            })
+                        }
                     </li>
                     <li>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190510/312_1038119421.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190510/312_1038119421.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190510/312_1038119421.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
+                        { 
+                            this.props.carouselData && 
+                            Array.isArray(this.props.carouselData["recommend"]) && 
+                            this.props.carouselData["recommend"].map((item) => {
+                                return (<a href="#" target="_blank" >
+                                    <img src={item.bgImg} />
+                                    <p>{item.desc}</p>
+                                </a>)
+                            })
+                        }
                     </li>
                     <li>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190510/312_1017459841.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190510/312_1017459841.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
-                        <a href="#" target="_blank" >
-                            <img src="http://jfrft.com/uploads/allimg/190510/312_1017459841.jpg" />
-                            <p>期待在地下城邂逅有错吗第二季收藏</p>
-                        </a>
+                        { 
+                            this.props.carouselData && 
+                            Array.isArray(this.props.carouselData["hot"]) && 
+                            this.props.carouselData["hot"].map((item) => {
+                                return (<a href="#" target="_blank" >
+                                    <img src={item.bgImg} />
+                                    <p>{item.desc}</p>
+                                </a>)
+                            })
+                        }
                     </li>
                 </ul>
                 <ul className="choice-box">
@@ -93,4 +93,14 @@ class HomeCarousel extends Component {
     }
 }
 
-export default HomeCarousel;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ getCarouselData }, dispatch)
+}
+
+const mapStateToProps = (state) => {
+    return {
+        carouselData: state.homeRedux.carouselData
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeCarousel);

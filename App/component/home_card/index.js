@@ -12,8 +12,8 @@ class HomeCard extends Component {
             </div>
             <ul>
                 {
-                    arr.map((item) => {
-                        return (<li>
+                    arr.map((item, index) => {
+                        return (<li key={index}>
                             <a href="javascript: void(0)" target="_blank">
                                 <div className="card-item-cover">
                                     <img src="http://jfrft.com/uploads/allimg/190510/312_1017459841.jpg" alt="" />
@@ -31,8 +31,8 @@ class HomeCard extends Component {
             </div>
             <ul>
                 {
-                    arr.map((item) => {
-                        return (<li>
+                    arr.map((item, index) => {
+                        return (<li key={index}>
                             <a href="javascript: void(0)" target="_blank">
                                 <div className="card-item-cover">
                                     <img src="http://jfrft.com/uploads/allimg/190510/312_1017459841.jpg" alt="" />
