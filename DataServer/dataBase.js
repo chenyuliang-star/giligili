@@ -17,6 +17,10 @@ const models = {
         tags: { type: Array, require: true}, //动漫类型
         resource: { type: Array, require: true}, //资源
         alternateResource: { type: Array, require: true}, //备用资源
+    },
+    card: { 
+        imgSrc: { type: String, require: true }, //图片路径
+        hash: { type: String, require: true }, //图片路径的hash值
     }
 }
 

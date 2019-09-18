@@ -1,33 +1,44 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getFeedData } from "../../redux/home_redux/action";
 import "./index.less";
 
 class HomeFeed extends Component {
+    constructor(props) {
+        super(props);
+        this.handleError = this.handleError.bind(this);
+    }
+    componentDidMount () {
+        this.props.getFeedData();
+    }
+    handleError (e) {
+        e.target.style = "display: none";
+    }
     render () {
         return (<div className="home-feed-wrap">
             <div className="feed-topline">
                 <i className="icon icon-tuche"></i>
-                <h2>客官看一下嘛</h2>
+                <h2>图册</h2>
             </div>
             <ul>
-                <li className="feed-big"><img src="http://ppic.mengimg.top/picture/58637/0.jpg?x-oss-process=image%2Fresize%2Ch_900&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=74Q6zONZudAhEFX068o6uR6AEys%3D" alt=""/></li>
-                <li className="feed-big"><img src="http://ppic.mengimg.top/picture/58637/0.jpg?x-oss-process=image%2Fresize%2Ch_900&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=74Q6zONZudAhEFX068o6uR6AEys%3D" alt=""/></li>
-                <li className="feed-small"><img src="http://ppic.mengimg.top/picture/49463/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=Reql2Vdw%2FgKoW4exsQkI3IbQ7uI%3D" alt=""/></li>
-                <li className="feed-small"><img src="http://ppic.mengimg.top/picture/49463/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=Reql2Vdw%2FgKoW4exsQkI3IbQ7uI%3D" alt=""/></li>
-                <li className="feed-medium"><img src="http://ppic.mengimg.top/picture/79533/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=MpPj7yjC23JT1iRhi7Ht6botzkw%3D" alt=""/></li>
-                <li className="feed-big"><img src="http://ppic.mengimg.top/picture/58637/0.jpg?x-oss-process=image%2Fresize%2Ch_900&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=74Q6zONZudAhEFX068o6uR6AEys%3D" alt=""/></li>
-                <li className="feed-small"><img src="http://ppic.mengimg.top/picture/49463/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=Reql2Vdw%2FgKoW4exsQkI3IbQ7uI%3D" alt=""/></li>
-                <li className="feed-medium"><img src="http://ppic.mengimg.top/picture/79533/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=MpPj7yjC23JT1iRhi7Ht6botzkw%3D" alt=""/></li>
-                <li className="feed-big"><img src="http://ppic.mengimg.top/picture/58637/0.jpg?x-oss-process=image%2Fresize%2Ch_900&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=74Q6zONZudAhEFX068o6uR6AEys%3D" alt=""/></li>
-                <li className="feed-small"><img src="http://ppic.mengimg.top/picture/49463/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=Reql2Vdw%2FgKoW4exsQkI3IbQ7uI%3D" alt=""/></li>
-                <li className="feed-medium"><img src="http://ppic.mengimg.top/picture/79533/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=MpPj7yjC23JT1iRhi7Ht6botzkw%3D" alt=""/></li>
-                <li className="feed-small"><img src="http://ppic.mengimg.top/picture/49463/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=Reql2Vdw%2FgKoW4exsQkI3IbQ7uI%3D" alt=""/></li>
-                <li className="feed-big"><img src="http://ppic.mengimg.top/picture/58637/0.jpg?x-oss-process=image%2Fresize%2Ch_900&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=74Q6zONZudAhEFX068o6uR6AEys%3D" alt=""/></li>
-                <li className="feed-small"><img src="http://ppic.mengimg.top/picture/49463/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=Reql2Vdw%2FgKoW4exsQkI3IbQ7uI%3D" alt=""/></li>
-                <li className="feed-big"><img src="http://ppic.mengimg.top/picture/58637/0.jpg?x-oss-process=image%2Fresize%2Ch_900&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=74Q6zONZudAhEFX068o6uR6AEys%3D" alt=""/></li>
-                <li className="feed-small"><img src="http://ppic.mengimg.top/picture/49463/0.jpg?x-oss-process=image%2Fresize%2Cw_400&OSSAccessKeyId=LTAIvuhjuUu1lgZy&Expires=1568563300&Signature=Reql2Vdw%2FgKoW4exsQkI3IbQ7uI%3D" alt=""/></li>
+                { this.props.feedData && 
+                  Array.isArray(this.props.feedData["feedData"]) && this.props.feedData["feedData"].map((item, index) => {
+                    return (<li key={index}><img src={item.imgSrc} alt="图册" onError={this.handleError}/></li>)
+                })}
             </ul>
         </div>)
     }
 }
 
-export default HomeFeed;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ getFeedData }, dispatch)
+}
+
+const mapStateToProps = (state) => {
+    return {
+        feedData: state.homeRedux.feedData
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeFeed);

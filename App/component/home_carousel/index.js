@@ -47,10 +47,10 @@ class HomeCarousel extends Component {
                         { 
                             this.props.carouselData && 
                             Array.isArray(this.props.carouselData["newFan"]) && 
-                            this.props.carouselData["newFan"].map((item) => {
-                                return (<a href="#" target="_blank" >
+                            this.props.carouselData["newFan"].map((item, index) => {
+                                return (<a href="#" target="_blank" key={index}>
                                     <img src={item.bgImg} />
-                                    <p>{item.desc}</p>
+                                    <p>{item.name}</p>
                                 </a>)
                             })
                         }
@@ -59,10 +59,10 @@ class HomeCarousel extends Component {
                         { 
                             this.props.carouselData && 
                             Array.isArray(this.props.carouselData["recommend"]) && 
-                            this.props.carouselData["recommend"].map((item) => {
-                                return (<a href="#" target="_blank" >
+                            this.props.carouselData["recommend"].map((item, index) => {
+                                return (<a href="#" target="_blank" key={index}>
                                     <img src={item.bgImg} />
-                                    <p>{item.desc}</p>
+                                    <p>{item.name}</p>
                                 </a>)
                             })
                         }
@@ -71,10 +71,10 @@ class HomeCarousel extends Component {
                         { 
                             this.props.carouselData && 
                             Array.isArray(this.props.carouselData["hot"]) && 
-                            this.props.carouselData["hot"].map((item) => {
-                                return (<a href="#" target="_blank" >
+                            this.props.carouselData["hot"].map((item, index) => {
+                                return (<a href="#" target="_blank" key={index}>
                                     <img src={item.bgImg} />
-                                    <p>{item.desc}</p>
+                                    <p>{item.name}</p>
                                 </a>)
                             })
                         }
