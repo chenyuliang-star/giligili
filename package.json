@@ -1,5 +1,5 @@
 {
-  "name": "giligili",
+  "name": "geligeli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,6 +20,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },

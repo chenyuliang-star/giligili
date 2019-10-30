@@ -22,6 +22,7 @@ class HomeCard extends Component {
                     this.props.cardData && 
                     Array.isArray(this.props.cardData["card1"]) && 
                     this.props.cardData["card1"].map((item, index) => {
+                        console.log(item);
                         return (<li key={index}>
                             <a href="#" target="_blank">
                                 <div className="card-item-cover">
